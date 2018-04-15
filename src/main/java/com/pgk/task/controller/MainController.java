@@ -26,14 +26,15 @@ public class MainController {
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String showCityByCountry(@RequestParam(value = "item", required = false) String item, Model model) {
+            //передаем список стран для drop-list
+        model.addAttribute("countries", countryService.listCountry());
         if (item!=null) {
-            model.addAttribute("countries", countryService.listCountry());
+            //если полученное значение не null выводим список городов принадлежащих выбранной стране
             model.addAttribute("cities", cityService.getListCityByCountryId(Integer.parseInt(item)));
             return "index";
         }else {
-            item="1";
-            model.addAttribute("countries", countryService.listCountry());
-            model.addAttribute("cities", cityService.getListCityByCountryId(Integer.parseInt(item)));
+            //если полученное значение null выводим список всех городов
+            model.addAttribute("cities", cityService.listCity());
             return "index";
         }
     }

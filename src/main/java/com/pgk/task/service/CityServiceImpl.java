@@ -24,9 +24,4 @@ public class CityServiceImpl implements CityService{
         return cities;
     }
 
-    @Override
-    public List<City> getListCityByCountryName(String name) {
-        List<City> cities = cityDao.getListCityByCountryName(name);
-        return cities;
-    }
 }

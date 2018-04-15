@@ -47,15 +47,6 @@ public class CityDaoImpl extends JdbcDaoSupport implements CityDao {
 
     }
 
-    @Override
-    public List<City> getListCityByCountryName(String name) {
-        String sql = "SELECT * FROM cities WHERE country_name='"+name+"'";
-        List<Map<String,Object>> rows = getJdbcTemplate().queryForList(sql);
-
-        List<City> result = new ArrayList<City>();
-        buildList(rows, result);
-        return result;
-    }
 
     private void buildList(List<Map<String, Object>> rows, List<City> result) {
         for (Map<String,Object> row: rows){

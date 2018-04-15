@@ -12,6 +12,8 @@
     <title>Справочник</title>
     <style type="text/css">
         .tg {
+            width: 300px;
+            margin: auto;
             border-collapse: collapse;
             border-spacing: 0;
             border-color: #ccc;
@@ -43,35 +45,45 @@
             color: #333;
             background-color: #f0f0f0;
         }
+        .select{
+            width: 225px;
+        }
 
         .tg .tg-4eph {
             background-color: #f9f9f9
+        }
+        .ts {
+            width: 300px;
+            margin: auto;
         }
     </style>
 </head>
 <body>
 
-<h1>Справочник городов мира</h1>
+<h1 align="center">Справочник городов мира</h1>
 
-<br/><br/>
+<br/>
 <div>
-    <table>
-        <td>
+    <table class="ts">
             <form action="">
-                <select name="item"  >
+                <th>
+                <select name="item" class="select">
                     <c:forEach  items="${countries}" var ="country">
                        <option value=${country.idCountry}>${country.nameCountry}</option>
                     </c:forEach>
                 </select>
+                </th>
+                <th>
                 <input type="submit" value="Показать"/>
+                </th>
             </form>
-        </td>
+
     </table>
     <br>
     <table class="tg">
         <tr>
             <th width="20">id</th>
-            <th width="200">Название города</th>
+            <th width="280">Название города</th>
         </tr>
         <c:forEach  items="${cities}" var ="city">
             <tr>
